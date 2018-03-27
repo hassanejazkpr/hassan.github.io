@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html" />
+	<meta name="author" content="Hassan" />
+
+	<title>Light Box</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        #img-holder {
+            display: inline-block;
+        }
+        #img-holder img {
+            width: 100px;
+            cursor: pointer;
+        }
+        #lightbox-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 998;
+        }
+        #lightbox-container {
+            width: max-content;
+            z-index: 999;
+            margin: auto;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: max-content;
+        }
+        #lightbox-imgs img {
+            max-width: 800px;
+            box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.4);
+            background: #fff;
+        }
+        #close-lightbox {
+            z-index: 9999;
+            color: #fff;
+            font-weight: bolder;
+            font-size: 40px;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 10px;
+            line-height: 15px;
+        }
+        #lightbox-controls {
+            color: #fff;
+            font-weight: bold;
+            font-size: larger;
+        }
+        #lightbox-controls, #lightbox-controls * {
+            user-select: none;
+        }
+        #lightbox-next {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            padding: 12px 18px;
+            cursor: pointer;
+            border-radius: 50%;
+            background: #000;
+            z-index: 9999
+        }
+        #lightbox-prev {
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            padding: 12px 18px;
+            cursor: pointer;
+            border-radius: 50%;
+            background: #000;
+            z-index: 9999
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="wrapper">
+    <div class="container">
+        <div class="content">
+            <div class="content-header">
+                <h3>Light Box Demo</h3>
+            </div>
+            <div class="content-body">
+                <div id="img-holder">
+                    <img title="View Image" src="1.png" />
+                    <img title="View Image" src="2.jpg" />
+                    <img title="View Image" src="3.jpg" />
+                    <img title="View Image" src="4.jpg" />
+                    <img title="View Image" src="5.jpg" />
+                    <img title="View Image" src="6.jpg" />
+                    <img title="View Image" src="7.jpg" />
+                    <img title="View Image" src="8.jpg" />
+                    <img title="View Image" src="9.png" />
+                    <img title="View Image" src="10.jpg" />
+                </div>
+            </div>
+            <div class="content-footer"></div>
+        </div>
+    </div>
+</div>
+
+<div class="hide" id="lightbox-wrapper">
+    <span title="Close Lightbox" id="close-lightbox">&times;</span>
+    <div id="lightbox-container">
+        <div id="lightbox-imgs">
+            <img />
+        </div>
+    </div>
+    <div id="lightbox-controls">
+        <div title="Show Next" id="lightbox-next">></div>
+        <div title="Show Previous" id="lightbox-prev"><</div>
+    </div>
+</div>
+
+</body>
+<footer>
+    <script>
+        var images = get_all_ele("#img-holder img");
+        
+        for(var i = 0; i < images.length; i++){
+            images[i].addEventListener("click", function(){
+                this.setAttribute("id", "lightbox-active");
+                get_ele("#lightbox-imgs img").setAttribute("src", this.src);
+                get_ele("#lightbox-wrapper").classList.remove("hide");
+            });
+        }
+        
+        get_ele("#close-lightbox").addEventListener("click", function(){
+            get_ele("#lightbox-wrapper").classList.add("hide");
+            get_ele("#lightbox-imgs").innerHTML = "<img />";
+            get_ele("#lightbox-active").removeAttribute("id");
+        });
+        
+        get_ele("#lightbox-next").addEventListener("click", function(){
+            var next_elem = get_ele("#lightbox-active").nextElementSibling;
+            if(next_elem != null){
+                get_ele("#lightbox-active").removeAttribute("id");
+                next_elem.setAttribute("id", "lightbox-active");
+                get_ele("#lightbox-imgs img").setAttribute("src", next_elem.src);
+            }
+        });
+        
+        get_ele("#lightbox-prev").addEventListener("click", function(){
+            var prev_elem = get_ele("#lightbox-active").previousElementSibling;
+            if(prev_elem != null){
+                get_ele("#lightbox-active").removeAttribute("id");
+                prev_elem.setAttribute("id", "lightbox-active");
+                get_ele("#lightbox-imgs img").setAttribute("src", prev_elem.src);
+            }
+        });
+        document.addEventListener("click", function(e){
+            if(e.target.id == "lightbox-wrapper"){
+                get_ele("#lightbox-wrapper").classList.add("hide");
+                get_ele("#lightbox-imgs").innerHTML = "<img />";
+                get_ele("#lightbox-active").removeAttribute("id");
+            }
+        });
+        function get_ele(ele){
+            return document.querySelector(ele);
+        }
+        
+        function get_all_ele(ele){
+            return document.querySelectorAll(ele);
+        }
+    </script>
+</footer>
+
+
+</html>
