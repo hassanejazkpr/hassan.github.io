@@ -82,6 +82,22 @@
             background: #000;
             z-index: 9999
         }
+        #lightbox-indicators {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: rgba(0,0,0,0.6);
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+        }
+        .lightbox-indic {
+            padding: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: small;
+        }
         .hide {
             display: none;
         }
@@ -126,13 +142,43 @@
         <div title="Show Next" id="lightbox-next">></div>
         <div title="Show Previous" id="lightbox-prev"><</div>
     </div>
+    <div id="lightbox-indicators"></div>
 </div>
 
 </body>
 <footer>
     <script>
         var images = get_all_ele("#img-holder img");
+        var curr_index;
+        images.forEach(function(ele, key){
+            ele.addEventListener("click", function(){
+                get_ele("#lightbox-indicators").innerHTML = "";
+                this.setAttribute("id", "lightbox-active");
+                get_ele("#lightbox-imgs img").setAttribute("src", this.src);
+                get_ele("#lightbox-wrapper").classList.remove("hide");
+                curr_index = key;
+                for(var j = 0; j < images.length; j++){
+                    get_ele("#lightbox-indicators").innerHTML += "<span onclick='highlight_index("+j+");' class='lightbox-indic'>"+(j+1)+"</span>";
+                }
+                highlight_index(curr_index);
+            });
+        });
         
+        function highlight_index(curr_index)
+        {
+            var indics = get_all_ele(".lightbox-indic");
+            for(var i = 0; i < indics.length; i++){
+                if(i == curr_index){
+                    indics[i].style.fontWeight = "bold";
+                    indics[i].style.fontSize = "larger";
+                }else{
+                    indics[i].style.fontWeight = "normal";
+                    indics[i].style.fontSize = "small";
+                }
+            }
+        }
+        
+        /*
         for(var i = 0; i < images.length; i++){
             images[i].addEventListener("click", function(){
                 this.setAttribute("id", "lightbox-active");
@@ -140,6 +186,7 @@
                 get_ele("#lightbox-wrapper").classList.remove("hide");
             });
         }
+        */
         
         get_ele("#close-lightbox").addEventListener("click", function(){
             get_ele("#lightbox-wrapper").classList.add("hide");
@@ -153,6 +200,8 @@
                 get_ele("#lightbox-active").removeAttribute("id");
                 next_elem.setAttribute("id", "lightbox-active");
                 get_ele("#lightbox-imgs img").setAttribute("src", next_elem.src);
+                curr_index++;
+                highlight_index(curr_index);
             }
         });
         
@@ -162,6 +211,8 @@
                 get_ele("#lightbox-active").removeAttribute("id");
                 prev_elem.setAttribute("id", "lightbox-active");
                 get_ele("#lightbox-imgs img").setAttribute("src", prev_elem.src);
+                curr_index--;
+                highlight_index(curr_index);
             }
         });
         document.addEventListener("click", function(e){
