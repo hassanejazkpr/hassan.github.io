@@ -1,7 +1,7 @@
 var notiWrapper = document.createElement("div");
 notiWrapper.id = "noti-wrapper";
 notiWrapper.classList.add("noti-bottom-right");
-document.addEvenetListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function(){
     document.body.appendChild(notiWrapper);
 });
 
@@ -116,7 +116,7 @@ var noti = {
 	}
 };
 
-document.addEvenetListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function(){
     var triggers = noti._$("[noti],[attr-noti]", true);
     if (triggers.length > 0) {
     	for (var x = 0; x < triggers.length; x++) {
