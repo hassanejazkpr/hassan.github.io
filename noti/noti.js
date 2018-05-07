@@ -115,19 +115,21 @@ var noti = {
 	}
 };
 
-var triggers = noti._$("[noti],[attr-noti]", true);
-if (triggers.length > 0) {
-	for (var x = 0; x < triggers.length; x++) {
-		if (triggers[x].getAttribute("data-noti-message") == null) {
-			triggers[x].setAttribute("data-noti-message", "Some Dummy Notification");
-		}
-		var notiMessage = triggers[x].getAttribute("data-noti-message");
-		if (triggers[x].getAttribute("data-noti-theme") == null) {
-			triggers[x].setAttribute("data-noti-theme", "dark");
-		}
-		var notiTheme = triggers[x].getAttribute("data-noti-theme");
-		triggers[x].onclick = function (e) {
-			noti.show(notiMessage, notiTheme);
-		}
-	}
-}
+document.addEvenetListener("DOMContentLoaded", function(){
+    var triggers = noti._$("[noti],[attr-noti]", true);
+    if (triggers.length > 0) {
+    	for (var x = 0; x < triggers.length; x++) {
+    		if (triggers[x].getAttribute("data-noti-message") == null) {
+    			triggers[x].setAttribute("data-noti-message", "Some Dummy Notification");
+    		}
+    		var notiMessage = triggers[x].getAttribute("data-noti-message");
+    		if (triggers[x].getAttribute("data-noti-theme") == null) {
+    			triggers[x].setAttribute("data-noti-theme", "dark");
+    		}
+    		var notiTheme = triggers[x].getAttribute("data-noti-theme");
+    		triggers[x].onclick = function (e) {
+    			noti.show(notiMessage, notiTheme);
+    		}
+    	}
+    }
+});
