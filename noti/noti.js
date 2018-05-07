@@ -1,8 +1,9 @@
-
 var notiWrapper = document.createElement("div");
 notiWrapper.id = "noti-wrapper";
 notiWrapper.classList.add("noti-bottom-right");
-document.body.appendChild(notiWrapper);
+document.addEvenetListener("DOMContentLoaded", function(){
+    document.body.appendChild(notiWrapper);
+});
 
 var noti = {
 	openAnimation: "bounceIn",
