@@ -1,3 +1,4 @@
+
 var notiWrapper = document.createElement("div");
 notiWrapper.id = "noti-wrapper";
 notiWrapper.classList.add("noti-bottom-right");
