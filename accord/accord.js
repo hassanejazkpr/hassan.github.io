@@ -70,4 +70,6 @@ function accord() {
 		}
 	}
 }
-accord();
+window.onload = function(){
+    accord();
+}
