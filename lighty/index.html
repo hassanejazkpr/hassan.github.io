@@ -1,0 +1,128 @@
+<html>
+	<head>
+        <title>Lighty - The Lightbox</title>
+        <link href="lighty.css" rel="stylesheet" type="text/css"/>
+		<script src="lighty.js"></script>
+        <style>
+            .gallery, .gallery2 {
+                display: inline-block;
+                width: 100px;
+                height: 100px;
+                cursor: pointer;
+            }
+        </style>
+        <script>
+            window.onload = function(){
+                /* Creating First Gallery */
+                lighty.init(".gallery",
+                /* Create Object To Style Your Slides. Use JavaScript Styling Keys e-g: fontFamily, backgroundColor, borderColor */
+                {
+                    /* Change Styles For All Slides. */
+                    all: {
+                        /* Style Container */
+						container: {
+						},
+                        /* Style Image */
+                        image: {
+                        },
+                        /* Style Description */
+						description: {
+						  fontFamily: "sans-serif",
+						}
+                    },
+                    /* Change Styles For Specific Slides. Keys Starting From 0 */
+					0: {
+						container: {
+						},
+                        image: {
+                        },
+						description: {
+						}
+					}
+                }
+                );
+                /* Creating Second Gallery */
+				lighty.init(".gallery2");
+            };
+        </script>
+	</head>
+	<body>
+    <div>
+        <!-- Gallery #1 -->
+        <!-- Images -->
+        <img src="1.jpg" class="gallery" />
+        <img src="2.jpg" class="gallery" />
+        <img src="3.jpg" class="gallery" />
+        <img src="4.jpg" class="gallery" />
+        <img src="5.jpg" class="gallery" />
+        <img src="6.jpg" class="gallery" />
+        <img src="7.jpg" class="gallery" />
+        <!-- Descripitons -->
+        <div class="lighty-desc gallery-desc">
+            <p>This is the scene of a sunset.</p>
+            <small>Presented by: Lighty - The Lightbox</small>
+        </div>
+        <div class="lighty-desc gallery-desc">
+            <p>This is an image of wheat crop.</p>
+            <small>Presented by: Lighty - The Lightbox</small>
+        </div>
+        <div class="lighty-desc gallery-desc">
+            <p>The Eiffel Tower.</p>
+            <small>Presented by: Lighty - The Lightbox</small>
+        </div>
+        <div class="lighty-desc gallery-desc">
+            <p>Road and mountains.</p>
+            <small>Presented by: Lighty - The Lightbox</small>
+        </div>
+        <div class="lighty-desc gallery-desc">
+            <p>A beautiful beach.</p>
+            <small>Presented by: Lighty - The Lightbox</small>
+        </div>
+        <div class="lighty-desc gallery-desc">
+            <p>Oranges.</p>
+            <small>Presented by: Lighty - The Lightbox</small>
+        </div>
+        <div class="lighty-desc gallery-desc">
+            <p>Lemons.</p>
+            <small>Presented by: Lighty - The Lightbox</small>
+        </div>
+        <!-- Gallery #2 -->
+        <img src="8.jpg" class="gallery2" />
+        <img src="9.jpg" class="gallery2" />
+        <img src="10.jpg" class="gallery2" />
+        <img src="11.jpg" class="gallery2" />
+        <img src="12.jpg" class="gallery2" />
+        <img src="13.jpg" class="gallery2" />
+        <img src="14.jpg" class="gallery2" />
+        <!-- Descripitons -->
+        <div class="lighty-desc gallery2-desc">
+            <p>Tea and flowers.</p>
+            <small>Presented by: Lighty - The Lightbox</small>
+        </div>
+        <div class="lighty-desc gallery2-desc">
+            <p>Grass.</p>
+            <small>Presented by: Lighty - The Lightbox</small>
+        </div>
+        <div class="lighty-desc gallery2-desc">
+            <p>House.</p>
+            <small>Presented by: Lighty - The Lightbox</small>
+        </div>
+        <div class="lighty-desc gallery2-desc">
+            <p>River in the city.</p>
+            <small>Presented by: Lighty - The Lightbox</small>
+        </div>
+        <div class="lighty-desc gallery2-desc">
+            <p>Sunshine.</p>
+            <small>Presented by: Lighty - The Lightbox</small>
+        </div>
+        <div class="lighty-desc gallery2-desc">
+            <p>Berries.</p>
+            <small>Presented by: Lighty - The Lightbox</small>
+        </div>
+        <div class="lighty-desc gallery2-desc">
+            <p>Doll.</p>
+            <small>Presented by: Lighty - The Lightbox</small>
+        </div>
+    </div>
+	</body>
+</html>
