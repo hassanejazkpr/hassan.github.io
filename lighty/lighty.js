@@ -20,9 +20,12 @@ var lighty = {
         for(var i = 0; i < imgs.length; i++){
             imgs[i].setAttribute("target-img", className.replace(".", "") + "-image-" + i);
             var img = document.createElement("img");
-            img.src = imgs[i].src;
+            if(imgs[i].getAttribute('lighty-img-src') !== null){
+                img.src = imgs[i].getAttribute('lighty-img-src');
+            }else{
+                img.src = imgs[i].src;
+            }
             img.style.userSelect = "none";
-			img.classList.add("animated");
             var lighty_container = document.createElement("div");
             lighty_container.classList.add("lighty-container");
             if(typeof prop !== "undefined" && typeof prop[i] !== "undefined"){
@@ -95,7 +98,15 @@ var lighty = {
         window.onkeyup = function(e){
             if(e.which === 27){
                 wrapper.querySelector(".lighty-close-btn").click();
-            }
+            }else if(e.which === 39 && document.querySelector('.lighty-wrapper.active')){
+				if(document.querySelector('.lighty-wrapper.active .lighty-next-btn').style.display !== 'none'){
+					document.querySelector('.lighty-wrapper.active .lighty-next-btn').click();
+				}
+			}else if(e.which === 37 && document.querySelector('.lighty-wrapper.active')){
+				if(document.querySelector('.lighty-wrapper.active .lighty-prev-btn').style.display !== 'none'){
+					document.querySelector('.lighty-wrapper.active .lighty-prev-btn').click();
+				}
+			}
         }                    
         wrapper.querySelector(".lighty-next-btn").onclick = function(){
             var wrap_img = wrapper.querySelector(".lighty-container.active");

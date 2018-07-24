@@ -1,8 +1,8 @@
 <html>
 	<head>
         <title>Lighty - The Lightbox</title>
-        <link href="lighty.css" rel="stylesheet" type="text/css"/>
-		<script src="lighty.js"></script>
+        <link href="lighty.min.css" rel="stylesheet" type="text/css"/>
+		<script src="lighty.min.js"></script>
         <style>
             .gallery, .gallery2 {
                 display: inline-block;
@@ -43,6 +43,22 @@
                 );
                 /* Creating Second Gallery */
 				lighty.init(".gallery2");
+				lighty.init(".gallery3", {
+				all: {
+                        /* Style Container */
+						container: {
+						 width: '100%'
+						},
+                        /* Style Image */
+                        image: {
+						width: '100%'
+                        },
+                        /* Style Description */
+						description: {
+						  fontFamily: "sans-serif",
+						}
+                    },
+				});
             };
         </script>
 	</head>
@@ -93,7 +109,7 @@
         <img src="11.jpg" class="gallery2" />
         <img src="12.jpg" class="gallery2" />
         <img src="13.jpg" class="gallery2" />
-        <img src="14.jpg" class="gallery2" />
+        <img src="14.jpg" class="gallery3" />
         <!-- Descripitons -->
         <div class="lighty-desc gallery2-desc">
             <p>Tea and flowers.</p>
