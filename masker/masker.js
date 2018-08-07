@@ -1,4 +1,4 @@
-(function(){
+document.addEventListener("DOMContentLoaded", function(event) {
 	var inps = document.querySelectorAll('[data-mask]');
 	for(var i = 0; i < inps.length; i++){
 	  inps[i].onkeypress = function(e){
@@ -17,4 +17,4 @@
 		}
 	  }
 	}
-})();
+});
