@@ -5,8 +5,7 @@ for (var i = 0; i < hoverables.length; i++) {
     this.classList.add('hovered');
     var targets = document.querySelectorAll(targetAttr);
     for (var z = 0; z < targets.length; z++) {
-      targets[z].classList.add('target');
-      targets[z].classList.add('hovered');
+      targets[z].classList.add('target-hovered');
     }
   };
   hoverables[i].onmouseout = function() {
@@ -14,8 +13,7 @@ for (var i = 0; i < hoverables.length; i++) {
     this.classList.remove('hovered');
     var targets = document.querySelectorAll(targetAttr);
     for (var z = 0; z < targets.length; z++) {
-      targets[z].classList.remove('target');
-      targets[z].classList.remove('hovered');
+      targets[z].classList.remove('target-hovered');
     }
   };
 }
