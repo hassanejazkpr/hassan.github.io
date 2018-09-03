@@ -1,10 +1,10 @@
 <html>
 	<head>
         <title>Lighty - The Lightbox</title>
-        <link href="lighty.min.css" rel="stylesheet" type="text/css"/>
-		<script src="lighty.min.js"></script>
+        <link href="lighty.css?v=1" rel="stylesheet" type="text/css"/>
+		<script src="lighty.js?v=3"></script>
         <style>
-            .gallery, .gallery2 {
+            .gallery, .gallery {
                 display: inline-block;
                 width: 100px;
                 height: 100px;
@@ -14,51 +14,30 @@
         <script>
             window.onload = function(){
                 /* Creating First Gallery */
-                lighty.init(".gallery",
+                //lighty.init(".gallery",
                 /* Create Object To Style Your Slides. Use JavaScript Styling Keys e-g: fontFamily, backgroundColor, borderColor */
-                {
+                //{
                     /* Change Styles For All Slides. */
-                    all: {
-                        /* Style Container */
-						container: {
-						},
-                        /* Style Image */
-                        image: {
-                        },
-                        /* Style Description */
-						description: {
-						  fontFamily: "sans-serif",
-						}
-                    },
+                    
                     /* Change Styles For Specific Slides. Keys Starting From 0 */
-					0: {
+				//	1: {
+				//		container: {
+				//		},
+                //       image: {
+                //      },
+				//		description: {
+				//		}
+				//	}
+                //});
+				var style = {
+					all: {
 						container: {
-						},
-                        image: {
-                        },
-						description: {
+							animation: 'none !important'
 						}
 					}
-                }
-                );
+				};
                 /* Creating Second Gallery */
-				lighty.init(".gallery2");
-				lighty.init(".gallery3", {
-				all: {
-                        /* Style Container */
-						container: {
-						 width: '100%'
-						},
-                        /* Style Image */
-                        image: {
-						width: '100%'
-                        },
-                        /* Style Description */
-						description: {
-						  fontFamily: "sans-serif",
-						}
-                    },
-				});
+				//lighty.init(".gallery", style);
             };
         </script>
 	</head>
@@ -103,39 +82,38 @@
             <small>Presented by: Lighty - The Lightbox</small>
         </div>
         <!-- Gallery #2 -->
-        <img src="8.jpg" class="gallery2" />
-        <img src="9.jpg" class="gallery2" />
-        <img src="10.jpg" class="gallery2" />
-        <img src="11.jpg" class="gallery2" />
-        <img src="12.jpg" class="gallery2" />
-        <img src="13.jpg" class="gallery2" />
-        <img src="14.jpg" class="gallery3" />
+        <img src="8.jpg" class="gallery" />
+        <img src="9.jpg" class="gallery" />
+        <img src="10.jpg" class="gallery" />
+        <img src="11.jpg" class="gallery" />
+        <img src="12.jpg" class="gallery" />
+        <img src="13.jpg" class="gallery" />
         <!-- Descripitons -->
-        <div class="lighty-desc gallery2-desc">
+        <div class="lighty-desc gallery-desc">
             <p>Tea and flowers.</p>
             <small>Presented by: Lighty - The Lightbox</small>
         </div>
-        <div class="lighty-desc gallery2-desc">
+        <div class="lighty-desc gallery-desc">
             <p>Grass.</p>
             <small>Presented by: Lighty - The Lightbox</small>
         </div>
-        <div class="lighty-desc gallery2-desc">
+        <div class="lighty-desc gallery-desc">
             <p>House.</p>
             <small>Presented by: Lighty - The Lightbox</small>
         </div>
-        <div class="lighty-desc gallery2-desc">
+        <div class="lighty-desc gallery-desc">
             <p>River in the city.</p>
             <small>Presented by: Lighty - The Lightbox</small>
         </div>
-        <div class="lighty-desc gallery2-desc">
+        <div class="lighty-desc gallery-desc">
             <p>Sunshine.</p>
             <small>Presented by: Lighty - The Lightbox</small>
         </div>
-        <div class="lighty-desc gallery2-desc">
+        <div class="lighty-desc gallery-desc">
             <p>Berries.</p>
             <small>Presented by: Lighty - The Lightbox</small>
         </div>
-        <div class="lighty-desc gallery2-desc">
+        <div class="lighty-desc gallery-desc">
             <p>Doll.</p>
             <small>Presented by: Lighty - The Lightbox</small>
         </div>
